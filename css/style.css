@@ -10,9 +10,54 @@
 /******************************************
 /* LAYOUT
 /*******************************************/
-img{
-  display: block;
-  margin: 0 auto;
+body {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  text-align: center;
+  align-items: center ;
+  background-image: url('https://media.istockphoto.com/id/1017647288/photo/bottles-and-wineglasses-with-grapes-at-sunset.jpg?s=612x612&w=0&k=20&c=tFFSMx9ksjttJNGFDcf2b5K4FyosQ2_HnP0GwbDkfNs=');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    gap: 30px;
+}
+
+
+
+h1 {
+    background-color: rgba(255, 255, 255, 0.655);
+    font-size: 40px;
+    padding: 15px;
+    margin: 15px;
+}
+
+input {
+    text-align: center;
+    padding: px;
+    font-size: 20px;
+    border: 3px solid black;
+}
+
+
+button {
+    background-color: hsl(279, 84%, 38%);
+    color: white;
+    font-size: 35px;
+    padding: 15px 40px;
+    border: none;
+    margin: 20px;
+    cursor: pointer;
+}
+
+h3 {
+    background-color: rgba(255, 255, 255, 0.655);
+    color: purple;
+    font-size: 25px;
+    font-weight: bold;
+    padding: 10px;
+    margin: 10px;
 }
 
 

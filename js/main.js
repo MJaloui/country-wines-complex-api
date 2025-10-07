@@ -1,21 +1,14 @@
-//The user will enter a date. Use that date to get the country flag.
-//get user input in a varibale.
-//fetch request from api
-//send api key and date to nasa
-//will get response from country API> object
-//process the response json object, needs to be an json object
-//do a task with response (name, Flag, and wine)
-//display name, Flag, and Activity
-//For sencond API(wine) it should be in rthe first fetch
+//Country API and Wine API
 
 //these two works
+//country flag images
 //country API: https://api.worldbank.org/v2/country?format=json&per_page=300
 //https://countriesnow.space/api/v0.1/countries
-//country flag images
 
 //wine API: https://api.sampleapis.com/wines/reds
 
-
+//The user will enter a country. Use that country to get the country flag.
+//get user input in a varibale.
 
 document.querySelector('button').addEventListener('click', getFlag)
 
@@ -24,13 +17,21 @@ function getFlag() {
 
     const url = `https://restcountries.com/v3.1/name/${countryName}?fullText=true`
 
+
+    //fetch request from api
+    //send api key and country to nasa
+    //will get response from country API> object
+    //process the response json object, needs to be an json object
+    //do a task with response (name, Flag, and wine)
     fetch(url)
         .then(res => res.json())
         .then(data => {
             console.log(data)
 
             const selectedCountry = data[0];
-
+            
+            //help with layomi
+            //display name flag Flag
             if (selectedCountry) {
                 document.querySelector('h2').innerText = selectedCountry.name.common
                 document.querySelector('img').src = selectedCountry.flags.png
@@ -41,7 +42,7 @@ function getFlag() {
             console.log(`error ${err}`);
         })
 
-
+    //fetch request from wine api to get country of wine
     fetch('https://api.sampleapis.com/wines/reds')
         .then(res => res.json())
         .then(wines => {
@@ -54,20 +55,25 @@ function getFlag() {
 
             // Help with layomi
 
+            //loop through every wine 
             for (let i = 0; i < wines.length; i++) {
 
-
+                //make the current wine object into a variable
                 let currentWine = wines[i]
 
+                //check if the location of the wine includes the country name, also fix case sensitivity
                 if (currentWine.location.toLowerCase().includes(countryName.toLowerCase())) {
+                    
+                    //console log the wine, winery, and country name in a message to try the wine.
                     console.log(`Try  ${currentWine.wine} from ${currentWine.winery} while in ${countryName}`)
+                    //display the same message on the page in h3 tag
                     document.querySelector('h3').innerText = `Try  ${currentWine.wine} from ${currentWine.winery} while in ${countryName}`
                 }
 
             }
 
         })
-
+        // catch errors
         .catch(err => {
             console.log(`error ${err}`)
         });
